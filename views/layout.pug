@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Cbus Playgrounds and Parks
+        link(rel="stylesheet", href="/css/styles.css")
+    body
+
+      block header
+        header
+          nav
+           .nav__items
+             li
+               a.nav__link(href="/" class='logo') cbus parks
+                 img(src="/images/cbusparksLogo.svg", alt="")
+             li
+               a.nav__link(href="/") parks
+                 != help.iconSolid('leaf fa-2x')
+             li
+               a.nav__link(href="/tags") tags
+                 != help.iconSolid('tags fa-2x')
+             li
+               a.nav__link(href="/top") top
+                 != help.iconSolid('thumbs-up fa-2x')
+             li
+               a.nav__link(href="/addPark") add
+                 != help.iconSolid('plus fa-2x')
+             li
+               a.nav__link(href="/map") map
+                 != help.iconSolid('map fa-2x')
+
+           .user__section  
+            if user    
+              li
+                a(href="/hearts")
+                  != help.icon('heart fa-2x')
+                  p.heart__count #{ user.hearts.length } 
+              li
+                a(href="/logout") Logout
+              li  
+                a(href="/account")
+                  img.avatar(src=user.gravatar alt="user avatar image")
+            else
+              li
+                a(href="/register") register
+              li
+                a(href="/login") login
+                
+           .search__bar
+             input.search(type="text" name="search" placeholder="Search.." autocomplete="off")
+             .search__results
+
+
+
+      block messages
+        if locals.flashes
+          .flash-messages
+            - const categories = Object.keys(locals.flashes)
+            each category in categories
+              each message in flashes[category]
+                .flash(class=`flash__${category}`)
+                  p #{message}   
+                  button.flash__remove(onClick="this.parentElement.remove()") &times;   
+
+      .content          
+        block content
+          h1 #{ title }
+
+      block scripts
+        <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+        script(src=`https://maps.googleapis.com/maps/api/js?key=${process.env.MAP_KEY}&libraries=places`)
+        script(src="/dist/App.bundle.js")
+      

@@ -1,0 +1,35 @@
+extends layout
+
+include mixins/_reviewForm
+include mixins/_review
+
+
+block content 
+  .single__hero
+      img(src=`/uploads/${park.photo || 'parkGeneric.jpg'}` , alt="Hero image of the park playground")
+      h2.single__hero__title #{park.name}
+
+  .single__park__details 
+    img.static__map(src=help.staticMap(park.location.coordinates), alt="")
+    p.single__location #{ park.location.address}
+    p.single__description #{ park.description }
+
+    if park.tags
+      ul.sort__tags
+        each tag in park.tags 
+         li.sort__tag
+           a.tag__link(href=`/tags/${tag}`)
+            span.tag__text ##{tag}
+    
+    if user
+      +reviewForm(park)
+
+    if park.reviews
+      .reviews
+        each review in park.reviews
+          .review
+            +review(review)
+
+    
+        
+  

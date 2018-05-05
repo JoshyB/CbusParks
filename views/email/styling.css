@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Cardo|Montserrat");
+/* font-family: 'Montserrat', sans-serif;
+font-family: 'Cardo', serif; */
+
+:root {
+  --main-bg-color: #323b3c;
+  --primary-color: #26b5a0;
+  --primary-text: #d7dd38;
+  --secondary-text: #508f78;
+  --brown: #979d47;
+  --green: #93c874;
+  --main-error-bg: #dd8989;
+  --error-border: #dd3b3b;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Cardo", serif;
+  font-size: 10px;
+}
+
+body {
+  background-color: var(--main-bg-color);
+  margin: 0;
+  padding: 0;
+  font-size: 1.5rem;
+  height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--primary-text);
+  font-family: "Montserrat", sans-serif;
+}
+
+p {
+  line-height: 2;
+  font-size: 1.6rem;
+}
+
+a {
+  text-align: center;
+  display: block;
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 10px;
+  background-color: var(--primary-text);
+  color: var(--main-bg-color);
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.center {
+  width: 100%;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.resetCard {
+  display: block;
+  max-width: 900px;
+  width: 70%;
+  word-wrap: break-word;
+  padding: 4rem;
+  margin: 100px auto;
+  background-color: var(--primary-color);
+}
+
+.resetCard p {
+  color: var(--primary-text);
+}

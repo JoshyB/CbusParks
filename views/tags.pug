@@ -1,0 +1,18 @@
+extends layout
+
+include mixins/_parkCard
+
+block content
+  .inner
+    h1 #{tag || 'Tags'}
+    ul.sort__tags 
+      each t in tags
+        li.sort__tag
+          a.tag__link(href=`/tags/${t._id}` class=(t._id === tag ? 'tag__active' : ''))
+            span.tag__text= t._id
+            span.tag__count= t.count
+
+    .parks  
+      each park in parks
+        +parkCard(park)
+        

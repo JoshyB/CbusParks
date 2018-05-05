@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  .inner
+    h2 Top #{parks.length} Parks
+    table.table
+      thead
+        td Photo
+        td Ranking
+        td Name
+        td Reviews
+        td Average Raiting
+      each park, i in parks
+        tr
+          td 
+            a(href=`/park/${park.slug}`)
+              img(src=`/uploads/${park.photo || "parkGeneric.jpg"}`, width=200,  alt=parks.name) 
+          td #{i + 1}
+          td: a(href=`/park/${park.slug}`)= park.name
+          td #{park.reviews.length}
+          td #{ Math.round(park.averageRaiting * 10) / 10 } / 5
+          

@@ -1,0 +1,27 @@
+mixin parkForm(park = {})
+  
+  form(action=`/createPark/${park._id || ''}` method="POST" enctype="multipart/form-data")
+    label(for="name" name="name") Name
+    input(type="text" name="name" value=park.name)
+    label(for="description" name="description") Description
+    textarea(name="description")= park.description
+    //-image upload
+    label(for="photo") Photo
+    input(type="file" id="photo" name="photo" accept="image/gif, image/png, image/jpeg")
+    if park.photo 
+      img(src=`/uploads/${park.photo}`, alt=park.name width=200)
+    //-address, lat and lng
+    label(for="address") Address
+    input(type="text" id="address" name="location[address]" value=(park.location && park.location.address))
+    label(for="lng") Longitude 
+    input(type="text" id="lng" name="location[coordinates][0]" value=(park.location && park.location.coordinates[0]) required)
+    label(for="lat") Latitude
+    input(type="text" id="lat" name="location[coordinates][1]" value=(park.location && park.location.coordinates[1]) required)
+    - const choices = ['Shade', 'Bathrooms', 'Tot-Lot', 'Playground', 'Drinking Fountain', 'Picnic Tables', 'Green Space', 'Basketball Court', 'Tennis Court', 'Baseball Field', 'Soccer Field', 'Walking Trails', 'Shelter House'];
+    - const tags = park.tags || []
+    ul.tags
+     each choice in choices
+      .tag
+        input(type='checkbox' id=choice value=choice name='tags' checked=(tags.includes(choice)))
+        label(for=choice) #{choice}
+    input(type="submit" value!="Save &#10137;" class="button")
