@@ -24,8 +24,7 @@ exports.getParks = async (req, res) => {
   const limit = 6;
   const skip = page * limit - limit;
 
-  const parksPromise = Park
-    .find()
+  const parksPromise = Park.find()
     .skip(skip)
     .limit(limit);
 
@@ -33,9 +32,18 @@ exports.getParks = async (req, res) => {
 
   const [parks, count] = await Promise.all([parksPromise, countPromise]);
 
-  const pages = Math.ceil(count/limit);
+  const pages = Math.ceil(count / limit);
 
-  res.render("parks", { title: "Parks", parks, page, pages, count});
+  if (!parks.length && skip) {
+    req.flash(
+      "success",
+      `You requested a page number that doesn't exist, so I put you on page ${pages}`
+    );
+    res.redirect(`parks/page${pages}`);
+    return;
+  }
+
+  res.render("parks", { title: "Parks", parks, page, pages, count });
 };
 
 exports.addPark = (req, res) => {

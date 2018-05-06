@@ -68,7 +68,7 @@ require("./models/User");
 app.use("/", routes);
 
 //if the above routes aren't found we mark it as 404 and move along
-app.use(errorhandlers.notFound);
+app.use(errorHandlers.notFound);
 
 app.listen(process.env.PORT || 8000, (req, res) => {
   console.log("Seems to be running!");
