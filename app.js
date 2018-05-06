@@ -6,7 +6,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const expressValidator = require("express-validator");
 const routes = require("./routes/index");
-const errorHandlers = require("./handlers/errorhandlers");
+const errorHandlers = require("./handlers/errorHandlers");
 const helpers = require('./helper');
 require("./handlers/passport");
 
@@ -68,10 +68,10 @@ require("./models/User");
 app.use("/", routes);
 
 //if the above routes aren't found we mark it as 404 and move along
-app.use(errorHandlers.notFound);
+app.use(errorhandlers.notFound);
 
-app.listen(process.env.PORT || 8080, (req, res) => {
-  console.log("Seems to be running !");
+app.listen(process.env.PORT || 8000, (req, res) => {
+  console.log("Seems to be running!");
 });
 
 module.exports = app;
