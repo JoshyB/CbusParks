@@ -20,6 +20,7 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "express-validator": "^5.0.3",
+    "hoek": "^5.0.3",
     "html-to-text": "^4.0.0",
     "jimp": "^0.2.28",
     "juice": "^4.2.3",
