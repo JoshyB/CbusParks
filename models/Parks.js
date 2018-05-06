@@ -92,11 +92,11 @@ parkSchema.statics.getTopParks = function() {
         name: "$$ROOT.name",
         reviews: "$$ROOT.reviews",
         slug: "$$ROOT.slug",
-        averageRaiting: { $avg: "$reviews.raiting" }
+        averageRating: { $avg: "$reviews.rating" }
       }
     },
     //sort by the new field in descending order
-    { $sort: { averageRaiting: -1 } },
+    { $sort: { averageRating: -1 } },
     //limit the number of reviews by 10
     { $limit: 10 }
   ]);

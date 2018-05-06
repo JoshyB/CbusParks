@@ -71,7 +71,6 @@ exports.reset = async (req, res) => {
 
 exports.confirmedPasswords = (req, res, next) => {
   if (req.body.password === req.body["password-confirm"]) {
-    console.log("hey there");
     next();
     return;
   }
