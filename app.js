@@ -6,7 +6,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const expressValidator = require("express-validator");
 const routes = require("./routes/index");
-const errorHandlers = require("./handlers/errorhandlers");
+const errorHandlers = require("./handlers/errorHandlers");
 const helpers = require('./helper');
 require("./handlers/passport");
 
