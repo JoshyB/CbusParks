@@ -865,6 +865,7 @@ thead td {
 
 .pagination {
   display: flex;
+  align-items: center;
   background: var(--primary-color);
   color: var(--primary-text);
   margin-top: 2rem;
