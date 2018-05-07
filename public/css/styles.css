@@ -871,3 +871,9 @@ thead td {
   justify-content: space-between;
   border-radius: 0.3rem;
 }
+
+.pagination__prev, .pagination__next {
+  align-items: center;
+  color: var(--primary-text);
+  margin: 0 10px;
+}
