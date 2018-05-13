@@ -1,7 +1,7 @@
 mixin pagination(page, pages, count)
 
   .pagination
-    .pagination__previous
+    .pagination__prev
       if page > 1
         a(href=`/parks/page/${ page - 1 }`) Prev
     .pagination__next
