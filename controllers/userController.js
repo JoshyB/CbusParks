@@ -39,11 +39,6 @@ exports.userLogin = (req, res) => {
   res.render("login", { title: "Login" });
 };
 
-//im not sure what i was using this for...testing probably? just commenting out for now.
-// exports.login = (req, res) => {
-//   res.json(req.body);
-// };
-
 // ********************* User registration control ************************************
 exports.register = (req, res) => {
   res.render("register", { title: "Register" });

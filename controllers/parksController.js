@@ -18,7 +18,6 @@ const multerOptions = {
   }
 };
 
-//TODO make this list all parks and shit
 exports.getParks = async (req, res) => {
   const page = req.params.page || 1;
   const limit = 6;
@@ -114,7 +113,6 @@ exports.getParkBySlug = async (req, res, next) => {
     "author reviews"
   );
   if (!park) return next();
-  // res.json(park)
   res.render("park", { park, title: park.name });
 };
 
@@ -172,6 +170,5 @@ exports.getHeartedParks = async (req, res) => {
 
 exports.getTopParks = async (req, res) => {
   const parks = await Park.getTopParks();
-  // res.json(parks)
   res.render("topParks", { title: "⭐️ Top Parks", parks });
 };

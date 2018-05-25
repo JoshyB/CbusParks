@@ -20,8 +20,8 @@ const app = express();
 app.use(express.static("public"));
 
 // view engine setup
-app.set("views", "./views"); // this is the folder where we keep our pug files
-app.set("view engine", "pug"); // we use the engine pug, mustache or EJS work great too
+app.set("views", "./views"); // folder where we keep out views
+app.set("view engine", "pug"); // I like the pug engine
 
 // Takes the raw requests and turns them into usable properties on req.body
 app.use(bodyParser.json());
@@ -38,7 +38,7 @@ app.use(
   })
 );
 
-// // Passport JS is what we use to handle our logins
+// // Passport JS for handing logins
 app.use(passport.initialize());
 app.use(passport.session());
 

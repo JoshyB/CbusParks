@@ -48,8 +48,7 @@ router.post(
 
 // ***************************** Park controller Stuff *********************************************
 
-//right now, this is routes to the homepage
-//TODO change to parks homepage and put this route inside of the 'parksController'
+//homepage
 router.get("/", catchErrors(parksController.getParks));
 router.get("/parks/page/:page", catchErrors(parksController.getParks));
 

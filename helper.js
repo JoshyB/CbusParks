@@ -5,6 +5,7 @@ exports.staticMap = ([lng, lat]) =>
 
 exports.moment = require("moment");
 
+//helper functions that make the use of fontawesome in pug easier
 exports.icon = (icon) => {return '<i class="far fa-' + icon + '"></i>'};
 exports.iconSolid = (iconSolid) => {return '<i class="fas fa-' + iconSolid + '"></i>'};
 
